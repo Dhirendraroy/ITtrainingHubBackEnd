@@ -29,8 +29,6 @@ public class HibernateConfig
 	{
 		Properties pr =new Properties();
 		pr.put("hibernate.dialert", "org.hibernate.dialert.HeDialert");
-		//pr.put("hibernate., value)
-		
 		
 		
 	}

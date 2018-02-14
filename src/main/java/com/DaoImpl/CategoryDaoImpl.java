@@ -10,9 +10,9 @@ import com.Model.Category;
 public class CategoryDaoImpl implements CategoryDao
 {
 
-	@Autowired
+	//@Autowired
 	SessionFactory sessionFactory;
-	@Autowire
+	//@Autowire
 	public CategoryDaoImpl(SessionFactory sessionFactory)
 	{
 		this.sessionFactory=sessionFactory;

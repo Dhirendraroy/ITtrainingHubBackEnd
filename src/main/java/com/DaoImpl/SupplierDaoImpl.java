@@ -12,9 +12,9 @@ import com.Model.Supplier;
 //@Service
 public class SupplierDaoImpl implements SupplierDao
 {
-	@Autowired
+	//@Autowired
 	SessionFactory sessionFactory;
-	@Autowire
+	//@Autowire
 	public SupplierDaoImpl(SessionFactory sessionFactory)
 	{
 		this.sessionFactory=sessionFactory;
