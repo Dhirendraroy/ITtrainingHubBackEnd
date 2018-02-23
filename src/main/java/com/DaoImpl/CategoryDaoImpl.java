@@ -1,31 +1,96 @@
 package com.DaoImpl;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.Dao.CategoryDao;
 import com.Model.Category;
 
 
-public class CategoryDaoImpl implements CategoryDao
+
+
+public class CategoryDaoImpl  
 {
+/*
+	@Autowired
+	private SessionFactory sessionFactory;
 
-	//@Autowired
-	SessionFactory sessionFactory;
-	//@Autowire
-	public CategoryDaoImpl(SessionFactory sessionFactory)
+	
+	
+	@Override
+	public List<Category> list() 
 	{
-		this.sessionFactory=sessionFactory;
+		
+		String selectActiveCategory = "FROM Category WHERE active = :active";
+		
+		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
+				
+		query.setParameter("active", true);
+						
+		return query.getResultList();
 	}
-	public void insertCategory(Category category)
-	{
-		Session session=sessionFactory.openSession();
-		session.beginTransaction();
-		session.saveOrUpdate(category);
-		session.getTransaction().commit();
-	}
-	
-	
-	
 
+	/*
+	 * Getting single category based on id
+	 */
+	/*
+	@Override
+	public Category get(int id) {
+
+		return sessionFactory.getCurrentSession().get(Category.class, Integer.valueOf(id));
+
+	}
+
+	@Override
+
+	public boolean add(Category category) {
+
+		try {
+			// add the category to the database table
+			sessionFactory.getCurrentSession().persist(category);
+			return true;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
+
+	}
+
+	/*
+	 * Updating a single category
+	 */
+	/*
+	
+	@Override
+	public boolean update(Category category) {
+
+		try {
+			// add the category to the database table
+			sessionFactory.getCurrentSession().update(category);
+			return true;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public boolean delete(Category category) {
+		
+		category.setActive(false);
+		
+		try {
+			// add the category to the database table
+			sessionFactory.getCurrentSession().update(category);
+			return true;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
+	}
+*/
 }

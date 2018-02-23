@@ -1,11 +1,17 @@
 package com.Dao;
 
+import java.util.List;
+
 import com.Model.Category;
-import com.Model.Supplier;
+
 
 public interface CategoryDao 
 {
-	public void insertCategory(Category category);
-	
 
+	Category get(int id);
+	List<Category> list();
+	boolean add(Category category);
+	boolean update(Category category);
+	boolean delete(Category category);
+	
 }

@@ -2,59 +2,100 @@ package com.Model;
 
 import java.io.Serializable;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 @Entity
 public class User implements Serializable
 {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	private String Email;
-	private String Eame;
-	private String Phone;
-	private String Address;
-	private String Password;
-	private String Country;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	@NotBlank(message = "Please enter first name!")
+	@Column(name = "first_name")
+	private String firstName;
+	@NotBlank(message = "Please enter last name!")
+	@Column(name = "last_name")
+	private String lastName;
+	@NotBlank(message = "Please enter email address!")	
+	private String email;
+	@NotBlank(message = "Please enter contact number!")
+	@Column(name = "contact_number")
+	private String contactNumber;
+	private String role;
+	@NotBlank(message = "Please enter password!")
+	private String password;
+	private boolean enabled = true;
+	@Transient
+	private String confirmPassword;
+
+	//getter and setter generated
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
-	public String getEame() {
-		return Eame;
+	public String getContactNumber() {
+		return contactNumber;
 	}
-	public void setEame(String eame) {
-		Eame = eame;
+	public void setContactNumber(String contactNumber) {
+		this.contactNumber = contactNumber;
 	}
-	public String getPhone() {
-		return Phone;
+	public String getRole() {
+		return role;
 	}
-	public void setPhone(String phone) {
-		Phone = phone;
-	}
-	public String getAddress() {
-		return Address;
-	}
-	public void setAddress(String address) {
-		Address = address;
+	public void setRole(String role) {
+		this.role = role;
 	}
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
-	public String getCountry() {
-		return Country;
+	public boolean isEnabled() {
+		return enabled;
 	}
-	public void setCountry(String country) {
-		Country = country;
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	
 	

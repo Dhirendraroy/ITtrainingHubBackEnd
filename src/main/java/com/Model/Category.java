@@ -1,24 +1,77 @@
 package com.Model;
 import javax.persistence.Id;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 @Entity
-public class Category 
-{
-	@Id
-	private String cid;
-	private String cname;
-	public String getCid() {
-		return cid;
+public class Category implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public int getId() {
+		return id;
 	}
-	public void setCid(String cid) {
-		this.cid = cid;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getCname() {
-		return cname;
+	public String getName() {
+		return name;
 	}
-	public void setCname(String cname) {
-		this.cname = cname;
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getImageURL() {
+		return imageURL;
+	}
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
+	}
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 	
+	
+	
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", imageURL=" + imageURL
+				+ ", active=" + active + "]";
+	}
 
+
+
+	/*
+	 * Private fields
+	 * */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	private String name;
+	
+	private String description;
+	
+	@Column(name = "image_url")
+	private String imageURL;
+	
+	@Column(name = "is_active")
+	private boolean active = true;
+	
+	
 }
